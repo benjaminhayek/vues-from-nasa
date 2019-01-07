@@ -1,14 +1,18 @@
 <template>
   <div class="nasa-vues">
     <h1>Vues from Nasa</h1>
+    <h3>{{msg}}</h3>
   </div>
 </template>
 
 <script>
+
+import { key } from '../utils/apiKey.js'
+
 export default {
   name: 'nasa-vues',
   props: {
-    msg: String
+    msg: key,
   }
 }
 </script>
