@@ -24,4 +24,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+
+html {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+}
 </style>
