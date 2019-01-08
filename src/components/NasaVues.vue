@@ -48,7 +48,7 @@ export default {
   display: grid;
   grid-template-columns: 25em 1fr;
   background-color: black;
-  height: 100vh;
+  height: 100%;
 }
 .header {
   display: flex;
@@ -56,7 +56,7 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 20vh;
+  height: 10em;
 }
 .border-left {
   width: 90%;
@@ -70,17 +70,21 @@ export default {
 }
 .body-info {
   display: flex;
+  height: 500px;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 }
 .body-title {
   font-size: 1.75em;
   text-align: center;
+  color: #2954B6;
 }
 .aside-title {
   margin-bottom: 2em;
   font-size: 1.75em;
   text-align: center;
+  color: #9E5BC9;
 }
 .fa-angle-double-right {
   color: #9E5BC9;
