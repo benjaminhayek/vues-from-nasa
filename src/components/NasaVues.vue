@@ -4,7 +4,8 @@
       <h1 class='title'>Vues from Nasa</h1>
     </header>
     <body>
-      <h1>look at all these cool pics</h1>
+      <h1>Here is the NASA astronomy picture of the day</h1>
+      <img class='placeholder' src='../utils/images/space.jpeg'/>
     </body>
   </div>
 </template>
@@ -12,11 +13,18 @@
 <script>
 
 import { key } from '../utils/apiKey.js'
+import { fetchAPOD } from '../utils/apiCalls.js'
 
 export default {
   name: 'nasa-vues',
-  props: {
-    msg: String
+  data() {
+    return {
+      apod: ''
+    }
+  },
+  async mounted() {
+    const pic = fetchAPOD()
+    this.apod = pic
   }
 }
 </script>
