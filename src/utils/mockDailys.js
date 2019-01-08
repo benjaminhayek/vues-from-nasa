@@ -1,4 +1,4 @@
-export const mockDailes = [
+export const mockDailys = [
     {
       title: "Pillars of Creation",
       url:

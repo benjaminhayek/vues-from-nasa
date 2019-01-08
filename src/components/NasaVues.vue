@@ -57,7 +57,7 @@ export default {
 
     }
   },
-  async created() {
+  async mounted() {
     let today = moment().format()
     let correctFormat = today.slice(0, 10)
     let currDay = correctFormat.slice(0, 4)
