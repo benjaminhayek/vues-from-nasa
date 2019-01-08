@@ -7,7 +7,7 @@
       <aside>
         <hr class="border-left">
         <h3 class="aside-title">Can't get enough space? Here's more</h3>
-        <button class="curr-month"><i class="fas fa-angle-double-right"></i> Current months pictures!</button>
+        <button v-on:click=fetchAllDaysOfMonth($event) class="curr-month"><i class="fas fa-angle-double-right"></i> Current months pictures!</button>
         <button class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures from the Mars rover!</button>
         <button class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures of earth!</button>
         <button class="curr-month"><i class="fas fa-angle-double-right"></i> Back to Pic of the day!</button>
@@ -15,8 +15,11 @@
       <section>
         <hr class="border-right">
         <h1 class="body-title">Here is the NASA astronomy picture of the day</h1>
-        <div class="body-info">
-          <img class='placeholder' src='../utils/images/space.jpeg'/>
+        <div class="image-holder" v-if="apods">
+
+          <div class="body-info" v-for="apod in apods" :key = "apod.index">
+            <img v-bind:src="apod.url" class="nasa-image" alt="apod"/>
+          </div>
         </div>
       </section>
     </body>
@@ -25,19 +28,29 @@
 
 <script>
 
-import { key } from '../utils/apiKey.js'
-import { fetchAPOD } from '../utils/apiCalls.js'
+import { fetchAPOD, fetchAPODS } from '../utils/apiCalls.js';
+import moment from 'moment';
 
 export default {
   name: 'nasa-vues',
   data() {
     return {
-      apod: ''
+      apods: null
+    }
+  },
+  methods: {
+    fetchAllDaysOfMonth: async function(event) {
+      let today = moment().format()
+      let correctFormat = today.slice(0, 10)
+      let picOfMonth = await fetchAPODS(correctFormat)
+      this.apods = picOfMonth
     }
   },
   async mounted() {
-    const pic = fetchAPOD()
-    this.apod = pic
+    let today = moment().format()
+    let correctFormat = today.slice(0, 10)
+    let todaysPic = await fetchAPOD(correctFormat)
+    this.apods = todaysPic
   }
 }
 </script>
@@ -68,12 +81,16 @@ export default {
   border-bottom: 1px solid #2954B6;
   border-top: 1px solid #2954B6;
 }
+.image-holder {
+  height: 500px;
+  overflow: auto;
+}
 .body-info {
   display: flex;
   height: 500px;
   justify-content: center;
   align-items: center;
-  overflow: auto;
+  margin-bottom: 15px;
 }
 .body-title {
   font-size: 1.75em;
@@ -141,8 +158,8 @@ export default {
   margin-left: 25px;
   font-size: 4em;
 }
-.placeholder {
-  height: 500px;
-  width: 600px;
+.nasa-image {
+  height: 450px;
+  width: 450px;
 }
 </style>
