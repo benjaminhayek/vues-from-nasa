@@ -1,4 +1,5 @@
 import { key } from '../utils/apiKey';
+import { mockAPOD } from '../utils/mockAPOD'
 
 export const fetchAPOD = async (url) => {
   try {
@@ -7,6 +8,7 @@ export const fetchAPOD = async (url) => {
     console.log(data)
     return data
   } catch (error) {
-    throw new Error()
+    console.log(error)
+    return mockAPOD
   }
 }
