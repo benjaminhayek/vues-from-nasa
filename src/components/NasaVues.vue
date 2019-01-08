@@ -5,6 +5,7 @@
     </header>
     <body class='main-page'>
       <aside>
+        <hr class="border-left">
         <h3 class="aside-title">Can't get enough space? Here's more</h3>
         <button class="curr-month"><i class="fas fa-angle-double-right"></i> Current months pictures!</button>
         <button class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures from the Mars rover!</button>
@@ -12,8 +13,11 @@
         <button class="curr-month"><i class="fas fa-angle-double-right"></i> Back to Pic of the day!</button>
       </aside>
       <section>
-        <h1>Here is the NASA astronomy picture of the day</h1>
-        <img class='placeholder' src='../utils/images/space.jpeg'/>
+        <hr class="border-right">
+        <h1 class="body-title">Here is the NASA astronomy picture of the day</h1>
+        <div class="body-info">
+          <img class='placeholder' src='../utils/images/space.jpeg'/>
+        </div>
       </section>
     </body>
   </div>
@@ -52,7 +56,26 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 25vh;
+  height: 20vh;
+}
+.border-left {
+  width: 90%;
+  border-bottom: 1px solid #9E5BC9;
+  border-top: 1px solid #9E5BC9;
+}
+.border-right {
+  width: 90%;
+  border-bottom: 1px solid #2954B6;
+  border-top: 1px solid #2954B6;
+}
+.body-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body-title {
+  font-size: 1.75em;
+  text-align: center;
 }
 .aside-title {
   margin-bottom: 2em;
