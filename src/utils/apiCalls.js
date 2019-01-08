@@ -47,6 +47,5 @@ export const fetchAPODS = (date) => {
         allPics.push(mockDailys[formatted])
         formatted--
     }
-    console.log(allPics)
     return allPics
 }

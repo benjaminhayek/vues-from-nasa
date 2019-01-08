@@ -43,11 +43,8 @@ export default {
       let today = moment().format()
       let correctFormat = today.slice(0, 10)
       let picOfMonth = await fetchAPODS(correctFormat)
-      console.log(picOfMonth)
       this.apods = picOfMonth
     }
-
-    // }
   },
   async mounted() {
     let today = moment().format()
