@@ -12,9 +12,7 @@ export const fetchAPOD = async (date) => {
     let funcCalls = 0;
     let i = 0;
     funcCalls++
-    console.log(mockDailys)
-    console.log(mockDailys[funcCalls])
-    while(i < funcCalls) {
+    while(i <= funcCalls) {
         return mockDailys[funcCalls]
     }
   }
