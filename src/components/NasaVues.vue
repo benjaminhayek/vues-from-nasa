@@ -16,7 +16,7 @@
         <hr class="border-right">
         <h1 class="body-title">Here is the NASA astronomy picture of the day</h1>
         <div class="body-info">
-          <img class='placeholder' src='../utils/images/space.jpeg'/>
+          <img :src="apod.url" class="placeholder" alt="apod"/>
         </div>
       </section>
     </body>
@@ -32,12 +32,18 @@ export default {
   name: 'nasa-vues',
   data() {
     return {
-      apod: ''
+      apod: null
     }
   },
-  async mounted() {
-    const pic = fetchAPOD()
-    this.apod = pic
+  methods: {
+    fetchA() {
+      fetchAPOD()
+    }
+  },
+  async created() {
+    let thing = await fetchAPOD()
+    console.log(thing)
+    this.apod = thing
   }
 }
 </script>
