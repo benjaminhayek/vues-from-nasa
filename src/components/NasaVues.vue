@@ -1,7 +1,11 @@
 <template>
   <div class="nasa-vues">
-    <h1>Vues from Nasa</h1>
-    <h3>{{msg}}</h3>
+    <header class='header'>
+      <h1 class='title'>Vues from Nasa</h1>
+    </header>
+    <body>
+      <h1>look at all these cool pics</h1>
+    </body>
   </div>
 </template>
 
@@ -12,25 +16,23 @@ import { key } from '../utils/apiKey.js'
 export default {
   name: 'nasa-vues',
   props: {
-    msg: key,
+    msg: String
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.header {
+  display: flex;
+  background-image: url('../utils/images/earth.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 25vh;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.title {
+  margin-left: 25px;
+  font-size: 4em;
 }
 </style>
