@@ -33,17 +33,35 @@ export default {
   data() {
     return {
       apod: null,
-      today: moment().format('L')
+      today: '' 
     }
   },
   methods: {
-    fetchA() {
-      fetchAPOD()
+    fetchAllDaysOfMonth() {
+      let today = moment().format()
+      let correctFormat = today.slice(0, 10)
+      let currDay = correctFormat.slice(8, 10)
+      let currMonth = correctFormat.slice(5, 7)
+      let currYear = correctFormat.slice(0, 4)
+      let i = 0
+      while (i < currDay){
+        let eachDay = `${currYear}-${currMonth}-${currDay}`
+        currDay--
+        let addZero = eachDay.split("")
+        if(addZero.length < 10) {
+          currDay = `0${currDay}`
+        }
+      fetchAPOD(eachDay)
+    }
+
     }
   },
   async created() {
-    let thing = await fetchAPOD()
-    this.apod = thing
+    let today = moment().format()
+    let correctFormat = today.slice(0, 10)
+    let currDay = correctFormat.slice(0, 4)
+    let todaysPic = await fetchAPOD(correctFormat)
+    this.apod = todaysPic
   }
 }
 </script>
