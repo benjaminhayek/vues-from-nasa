@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       apod: null,
-      today: '' 
+      picsOfMonth: null 
     }
   },
   methods: {
@@ -51,7 +51,8 @@ export default {
         if(addZero.length < 10) {
           currDay = `0${currDay}`
         }
-      fetchAPOD(eachDay)
+      let picOfMonth = fetchAPOD(eachDay)
+      this.picsOfMonth = picOfMonth
     }
 
     }
