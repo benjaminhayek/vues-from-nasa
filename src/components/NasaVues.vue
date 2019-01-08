@@ -42,17 +42,6 @@ export default {
     fetchAllDaysOfMonth: async function(event) {
       let today = moment().format()
       let correctFormat = today.slice(0, 10)
-      // let currDay = correctFormat.slice(8, 10)
-      // let currMonth = correctFormat.slice(5, 7)
-      // let currYear = correctFormat.slice(0, 4)
-      // let i = 0
-      // while (i < currDay){
-      //   let eachDay = `${currYear}-${currMonth}-${currDay}`
-      //   currDay--
-      //   let addZero = eachDay.split("")
-      //   if(addZero.length < 10) {
-      //     currDay = `0${currDay}`
-      //   }
       let picOfMonth = await fetchAPODS(correctFormat)
       console.log(picOfMonth)
       this.apods = picOfMonth
