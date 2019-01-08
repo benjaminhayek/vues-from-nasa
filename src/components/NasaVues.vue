@@ -25,14 +25,15 @@
 
 <script>
 
-import { key } from '../utils/apiKey.js'
-import { fetchAPOD } from '../utils/apiCalls.js'
+import { fetchAPOD } from '../utils/apiCalls.js';
+import moment from 'moment';
 
 export default {
   name: 'nasa-vues',
   data() {
     return {
-      apod: null
+      apod: null,
+      today: moment().format('L')
     }
   },
   methods: {
@@ -42,7 +43,6 @@ export default {
   },
   async created() {
     let thing = await fetchAPOD()
-    console.log(thing)
     this.apod = thing
   }
 }
