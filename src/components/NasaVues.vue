@@ -18,7 +18,7 @@
         <div class="image-holder" v-if="apods">
 
           <div class="body-info" v-for="apod in apods" :key = "apod.index">
-            <img v-bind:src="apod.url" class="placeholder" alt="apod"/>
+            <img v-bind:src="apod.url" class="nasa-image" alt="apod"/>
           </div>
         </div>
       </section>
@@ -35,8 +35,7 @@ export default {
   name: 'nasa-vues',
   data() {
     return {
-      apods: null,
-      picsOfMonth: null 
+      apods: null
     }
   },
   methods: {
@@ -98,13 +97,14 @@ export default {
 }
 .image-holder {
   height: 500px;
+  overflow: auto;
 }
 .body-info {
   display: flex;
   height: 500px;
   justify-content: center;
   align-items: center;
-  overflow: auto;
+  margin-bottom: 15px;
 }
 .body-title {
   font-size: 1.75em;
@@ -172,8 +172,8 @@ export default {
   margin-left: 25px;
   font-size: 4em;
 }
-.placeholder {
-  height: 500px;
-  width: 600px;
+.nasa-image {
+  height: 450px;
+  width: 450px;
 }
 </style>
