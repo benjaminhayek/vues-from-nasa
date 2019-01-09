@@ -90,7 +90,6 @@ export default {
 }
 .body-info {
   display: flex;
-  height: 500px;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
@@ -165,7 +164,7 @@ export default {
   font-size: 4em;
 }
 .nasa-image {
-  height: 450px;
+  height: 400px;
   width: 450px;
 }
 </style>
