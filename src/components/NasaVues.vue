@@ -19,6 +19,7 @@
 
           <div class="body-info" v-for="apod in apods" :key = "apod.index">
             <img v-bind:src="apod.url" class="nasa-image" alt="apod"/>
+            <h3 class="image-title">{{apod.title}}</h3>
           </div>
         </div>
       </section>
@@ -90,6 +91,7 @@ export default {
 }
 .body-info {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
