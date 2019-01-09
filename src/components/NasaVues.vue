@@ -171,4 +171,25 @@ export default {
   height: 400px;
   width: 450px;
 }
+
+@media screen and (max-width: 800px) {
+.main-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+.title {
+  font-size: 2em;
+}
+.body-title, .aside-title {
+  font-size: 1.5em;
+}
+.curr-month {
+  font-size: 1em;
+}
+.nasa-image {
+  height: 300px;
+  width: 300px;
+}
+}
 </style>
