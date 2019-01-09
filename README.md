@@ -25,5 +25,6 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Screenshot of app
+![alt tag](https://github.com/benjaminhayek/vues-from-nasa/blob/master/src/utils/images/nasa-vues.png "Screen-shot of App")
+
