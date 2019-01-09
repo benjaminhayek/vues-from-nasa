@@ -14,7 +14,7 @@ export const mockRover = [
             "earth_date": "2009-05-09",
     },
     {
-        title: 'More Shit',
+        title: 'It sure is desolate',
         url: "http://mars.nasa.gov/mer/gallery/all/2/n/1900/2N295043924EFFB1DNP1979R0M1-BR.JPG",
     } 
 ]

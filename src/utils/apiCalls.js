@@ -1,4 +1,5 @@
 import { mockDailys } from '../utils/mockDailys';
+import { mockRover } from '../utils/mockRover';
 
 // export const fetchAPOD = async (date) => {
 //   try {
@@ -31,6 +32,16 @@ import { mockDailys } from '../utils/mockDailys';
 //   }
 // }
 
+// export const fetchMarsPics = async () => {
+//   try {
+//     const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${key}`)
+//     const data = await response.json()
+//     return data
+//   } catch (error) {
+//     throw new Error(error)
+//   }
+// }
+
 export const fetchAPOD = (date) => {
     let day = date
     let allPics = [];
@@ -48,4 +59,8 @@ export const fetchAPODS = (date) => {
         formatted--
     }
     return allPics
+}
+
+export const fetchMarsPics = () => {
+    return mockRover
 }

@@ -8,7 +8,7 @@
         <hr class="border-left">
         <h3 class="aside-title">Can't get enough space? Here's more</h3>
         <button v-on:click=fetchAllDaysOfMonth($event) class="curr-month"><i class="fas fa-angle-double-right"></i> Current months pictures!</button>
-        <button class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures from the Mars rover!</button>
+        <button v-on:click=fetchMarsRoverPics($event) class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures from the Mars rover!</button>
         <button class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures of earth!</button>
         <button v-on:click=fetchTodaysPic($event) :disabled="apods.length === 1" class="curr-month back"><i class="fas fa-angle-double-right"></i> Back to Pic of the day!</button>
       </aside>
@@ -29,7 +29,7 @@
 
 <script>
 
-import { fetchAPOD, fetchAPODS } from '../utils/apiCalls.js';
+import { fetchAPOD, fetchAPODS, fetchMarsPics } from '../utils/apiCalls.js';
 import moment from 'moment';
 
 export default {
@@ -51,6 +51,9 @@ export default {
     let correctFormat = today.slice(0, 10)
     let todaysPic = await fetchAPOD(correctFormat)
     this.apods = todaysPic
+    },
+    fetchMarsRoverPics: async function(event) {
+      this.apods = await fetchMarsPics()
     }
   },
   async mounted() {
