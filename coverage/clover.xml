@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1547001351066" clover="3.2.0">
-  <project timestamp="1547001351066" name="All files">
+<coverage generated="1547001833604" clover="3.2.0">
+  <project timestamp="1547001833604" name="All files">
     <metrics statements="2412" coveredstatements="18" conditionals="2773" coveredconditionals="0" methods="618" coveredmethods="2" elements="5803" coveredelements="20" complexity="0" loc="2412" ncloc="2412" packages="10" files="83" classes="83">
       <package name="dist.js.webpack:.(webpack).buildin">
         <metrics statements="6" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -2642,17 +2642,17 @@
           <metrics statements="13" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
           <line num="31" count="1" type="stmt"/>
           <line num="32" count="1" type="stmt"/>
-          <line num="37" count="1" type="stmt"/>
+          <line num="37" count="2" type="stmt"/>
           <line num="43" count="0" type="stmt"/>
           <line num="44" count="0" type="stmt"/>
           <line num="45" count="0" type="stmt"/>
           <line num="46" count="0" type="stmt"/>
-          <line num="49" count="1" type="stmt"/>
-          <line num="50" count="1" type="stmt"/>
-          <line num="51" count="1" type="stmt"/>
-          <line num="52" count="1" type="stmt"/>
+          <line num="49" count="2" type="stmt"/>
+          <line num="50" count="2" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
+          <line num="52" count="2" type="stmt"/>
           <line num="55" count="0" type="stmt"/>
-          <line num="59" count="1" type="stmt"/>
+          <line num="59" count="2" type="stmt"/>
         </file>
       </package>
       <package name="src.utils">
@@ -2660,11 +2660,11 @@
         <file name="apiCalls.js" path="/Users/Ben/Documents/Turing/Mod4/nasa-vues/src/utils/apiCalls.js">
           <metrics statements="16" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
           <line num="45" count="1" type="stmt"/>
-          <line num="46" count="1" type="stmt"/>
-          <line num="47" count="1" type="stmt"/>
-          <line num="48" count="1" type="stmt"/>
-          <line num="49" count="1" type="stmt"/>
-          <line num="50" count="1" type="stmt"/>
+          <line num="46" count="2" type="stmt"/>
+          <line num="47" count="2" type="stmt"/>
+          <line num="48" count="2" type="stmt"/>
+          <line num="49" count="2" type="stmt"/>
+          <line num="50" count="2" type="stmt"/>
           <line num="53" count="1" type="stmt"/>
           <line num="54" count="0" type="stmt"/>
           <line num="55" count="0" type="stmt"/>

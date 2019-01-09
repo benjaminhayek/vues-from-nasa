@@ -1,16 +1,18 @@
 import { shallowMount } from '@vue/test-utils'
 import NasaVues from '../components/NasaVues.vue'
 
-const factory = (values = {}) => {
-  return shallowMount(NasaVues, {
-    data: { ...values  }
-  })
-}
-
 describe('NasaVues', () => {
-  it('renders a empty array', () => {
-    const wrapper = factory()
+    let wrapper;
+  
+    beforeEach(() => {
+      wrapper = shallowMount(NasaVues);
+    });
+  
+    it('should match the snapshot', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
 
-    expect(wrapper.find('.apods')).toEqual({"selector": ".apods"})
-  })
-})
+    it('renders a selector apods', () => {    
+        expect(wrapper.find('.apods')).toEqual({"selector": ".apods"})
+    })
+  });
