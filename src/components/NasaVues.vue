@@ -8,17 +8,17 @@
         <hr class="border-left">
         <h3 class="aside-title">Can't get enough space? Here's more</h3>
         <button v-on:click=fetchAllDaysOfMonth($event) class="curr-month"><i class="fas fa-angle-double-right"></i> Current months pictures!</button>
-        <button class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures from the Mars rover!</button>
-        <button class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures of earth!</button>
-        <button class="curr-month"><i class="fas fa-angle-double-right"></i> Back to Pic of the day!</button>
+        <button v-on:click=fetchMarsRoverPics($event) class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures from the Mars rover!</button>
+        <button v-on:click=fetchTodaysPic($event) :disabled="apods.length === 1" class="curr-month back"><i class="fas fa-angle-double-right"></i> Back to Pic of the day!</button>
       </aside>
       <section>
         <hr class="border-right">
         <h1 class="body-title">Here is the NASA astronomy picture of the day</h1>
         <div class="image-holder" v-if="apods">
 
-          <div class="body-info" v-for="apod in apods" :key = "apod.index">
+          <div class="body-info" v-for="apod in apods" :key = "apod.id">
             <img v-bind:src="apod.url" class="nasa-image" alt="apod"/>
+            <h3 class="image-title">{{apod.title}}</h3>
           </div>
         </div>
       </section>
@@ -28,14 +28,14 @@
 
 <script>
 
-import { fetchAPOD, fetchAPODS } from '../utils/apiCalls.js';
+import { fetchAPOD, fetchAPODS, fetchMarsPics } from '../utils/apiCalls.js';
 import moment from 'moment';
 
 export default {
   name: 'nasa-vues',
   data() {
     return {
-      apods: null
+      apods: []
     }
   },
   methods: {
@@ -44,13 +44,19 @@ export default {
       let correctFormat = today.slice(0, 10)
       let picOfMonth = await fetchAPODS(correctFormat)
       this.apods = picOfMonth
-    }
-  },
-  async mounted() {
+    },
+    fetchTodaysPic: async function(event) {
     let today = moment().format()
     let correctFormat = today.slice(0, 10)
     let todaysPic = await fetchAPOD(correctFormat)
     this.apods = todaysPic
+    },
+    fetchMarsRoverPics: async function(event) {
+      this.apods = await fetchMarsPics()
+    }
+  },
+  async mounted() {
+    await this.fetchTodaysPic()
   }
 }
 </script>
@@ -87,7 +93,7 @@ export default {
 }
 .body-info {
   display: flex;
-  height: 500px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
@@ -124,8 +130,11 @@ export default {
   width: 100%;
   text-align: left;
 }
-
-.curr-month:hover{
+.back:disabled {
+  color: grey;
+  cursor: not-allowed;
+}
+.curr-month:hover:enabled{
   background:#fff;
   background: linear-gradient(to right,#9E5BC9);
   -webkit-text-fill-color: transparent;
@@ -159,7 +168,7 @@ export default {
   font-size: 4em;
 }
 .nasa-image {
-  height: 450px;
+  height: 400px;
   width: 450px;
 }
 </style>
