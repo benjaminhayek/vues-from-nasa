@@ -16,7 +16,7 @@
         <h1 class="body-title">Here is the NASA astronomy picture of the day</h1>
         <div class="image-holder" v-if="apods">
 
-          <div class="body-info" v-for="apod in apods" :key = "apod.index">
+          <div class="body-info" v-for="apod in apods" :key = "apod.id">
             <img v-bind:src="apod.url" class="nasa-image" alt="apod"/>
             <h3 class="image-title">{{apod.title}}</h3>
           </div>
