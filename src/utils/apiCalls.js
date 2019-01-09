@@ -43,9 +43,8 @@ import { mockRover } from '../utils/mockRover';
 // }
 
 export const fetchAPOD = (date) => {
-    let day = date
     let allPics = [];
-    let formatted = day.slice(8,10) -1
+    let formatted = date.slice(8,10) -1
     allPics.push(mockDailys[formatted])
     return allPics
 }
