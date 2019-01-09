@@ -17,11 +17,28 @@ describe('NasaVues', () => {
         expect(wrapper.find('.apods')).toEqual({"selector": ".apods"})
     })
 
-    // it('calls the correct function on click', () => {
-    //     const fetchAllDaysOfMonth = jest.fn();
-    //     const button = wrapper.find('.top-btn')
-    //     button.trigger('click')
-    //     expect(fetchAllDaysOfMonth).toBeCalledTimes(1)
-    // })
+    it('calls fetchAllDaysOfTheMonth on click', () => {
+        let mockFunc = jest.fn();
+        wrapper.setMethods({ fetchAllDaysOfMonth: mockFunc });
+
+        const button = wrapper.find(".CMP-btn").trigger("click");
+        expect(mockFunc).toBeCalled();
+    })
+
+    it('calls fetchAllDaysOfTheMonth on click', () => {
+        let mockFunc = jest.fn();
+        wrapper.setMethods({ fetchMarsRoverPics: mockFunc });
+
+        const button = wrapper.find(".mars-btn").trigger("click");
+        expect(mockFunc).toBeCalled();
+    })
+
+    it.skip('calls fetchTodaysPic on click', () => {
+        let mockFunc = jest.fn();
+        wrapper.setMethods({ fetchTodaysPic: mockFunc });
+
+        const button = wrapper.find(".back").trigger("click");
+        expect(mockFunc).toBeCalled();
+    })
 
   });
