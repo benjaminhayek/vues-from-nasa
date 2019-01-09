@@ -9,7 +9,6 @@
         <h3 class="aside-title">Can't get enough space? Here's more</h3>
         <button v-on:click=fetchAllDaysOfMonth($event) class="curr-month"><i class="fas fa-angle-double-right"></i> Current months pictures!</button>
         <button v-on:click=fetchMarsRoverPics($event) class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures from the Mars rover!</button>
-        <button class="curr-month"><i class="fas fa-angle-double-right"></i> Pictures of earth!</button>
         <button v-on:click=fetchTodaysPic($event) :disabled="apods.length === 1" class="curr-month back"><i class="fas fa-angle-double-right"></i> Back to Pic of the day!</button>
       </aside>
       <section>
